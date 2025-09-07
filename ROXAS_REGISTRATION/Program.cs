@@ -16,7 +16,7 @@ namespace ROXAS_REGISTRATION
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new OrganizationProfile());
+            Application.Run(new frmRegistration());
         }
     }
 }

@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace ROXAS_REGISTRATION
 {
-    public partial class OrganizationProfile : Form
+    public partial class frmConfirmation : Form
     {
-        public OrganizationProfile()
+        public frmConfirmation()
         {
             InitializeComponent();
+        }
+
+       
+        
+        
+        
+        
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
