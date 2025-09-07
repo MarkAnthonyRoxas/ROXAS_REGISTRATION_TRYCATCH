@@ -18,9 +18,12 @@ namespace ROXAS_REGISTRATION
         private int _age;
         private long _contactNo;
         private long _studentNo;
+        // Add the missing field declaration for '_contactNoDisplay' to resolve the CS0103 error.
+        private string _contactNoDisplay;
         public frmRegistration()
         {
             InitializeComponent();
+            txtContactNo.Text = "+63";
         }
         public string FullName(string lastName, string firstName, string middleInitial)
         {
@@ -94,7 +97,15 @@ namespace ROXAS_REGISTRATION
         // A method to validate and set the contact number.
         public long ContactNo(string contactNo)
         {
-            if (Regex.IsMatch(contactNo, @"^([0-9]{10})$"))
+            _contactNoDisplay = contactNo;
+            // Check if the input starts with "+63" and remove it for validation.
+            if (contactNo.StartsWith("+63"))
+            {
+                contactNo = contactNo.Substring(3);
+            }
+
+            // Validate that the remaining string is a 10-digit number.
+            if (Regex.IsMatch(contactNo, @"^[0-9]{10}$"))
             {
                 long result;
                 if (long.TryParse(contactNo, out result))
@@ -102,7 +113,7 @@ namespace ROXAS_REGISTRATION
                     _contactNo = result;
                     if (contactNo.Length > 10)
                     {
-                        // This will be caught by OverFlowException
+                        // This will be caught by OverFlowException.
                         throw new OverflowException();
                     }
                     else
@@ -112,13 +123,13 @@ namespace ROXAS_REGISTRATION
                 }
                 else
                 {
-                    // This will be caught by FormatException
+                    // This will be caught by FormatException.
                     throw new FormatException();
                 }
             }
             else
             {
-                // This will be caught by ArgumentNullException
+                // This will be caught by ArgumentNullException if not a 10-digit number.
                 throw new ArgumentNullException();
             }
         }
@@ -177,6 +188,17 @@ namespace ROXAS_REGISTRATION
             for (int i = 0; i < 6; i++)
             {
                 cbPrograms.Items.Add(ListOfProgram[i].ToString());
+            }
+            string[] ListOfGender = new string[]
+       {
+            "Male",
+            "Female",
+          
+       };
+
+            for (int i = 0; i < ListOfGender.Length; i++)
+            {
+                cbGender.Items.Add(ListOfGender[i].ToString());
             }
         }
     }

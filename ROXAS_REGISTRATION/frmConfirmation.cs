@@ -24,7 +24,7 @@ namespace ROXAS_REGISTRATION
         
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void frmConfirmation_Load(object sender, EventArgs e)
