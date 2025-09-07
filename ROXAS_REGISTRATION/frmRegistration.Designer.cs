@@ -230,6 +230,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightGreen;
             this.ClientSize = new System.Drawing.Size(675, 348);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.txtContactNo);
@@ -253,6 +254,7 @@
             this.Controls.Add(this.label1);
             this.Name = "frmRegistration";
             this.Text = "Organization Profile";
+            this.Load += new System.EventHandler(this.frmRegistration_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -218,6 +218,7 @@
             this.Controls.Add(this.label1);
             this.Name = "frmConfirmation";
             this.Text = "frmConfirmation";
+            this.Load += new System.EventHandler(this.frmConfirmation_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
